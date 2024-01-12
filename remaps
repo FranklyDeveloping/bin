@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Decrease repeat delay -> 300ms; increase repeat rate -> 50ms
+xset r rate 300 50
+# capslock -> super, menu -> r_super.
+setxkbmap -option caps:super,altwin:menu_win
+# 1capslock -> esc
+killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
+# Turn off capslock
+xset -q | grep -q "Caps Lock:\s*on" && xdotool key Caps_Lock

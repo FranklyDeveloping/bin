@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while :; do
+	remaps
+	grep -qP -m1 '[^un]bind.+\/[^:]+\(usb\)' <(udevadm monitor -u -t seat -s input -s usb)
+done
